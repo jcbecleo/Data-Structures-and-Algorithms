@@ -51,7 +51,6 @@ int pop(Stack* S){
     if(S->top == -1) // to check is stack is empty
     printf("Stack is empty.\n");
 
-    S->elem[S->top];
     return S->elem[(S->top)--];
 }
 

@@ -42,7 +42,7 @@ void enqueue(Queue* Q, int num){
 }
 
 void dequeue(Queue* Q){
-    if(Q->front == (Q->rear+2) % MAX) //to check if queue is empty
+    if(Q->front == (Q->rear+1) % MAX) //to check if queue is empty
     printf("Queue is empty.\n");
 
     Q->front = (Q->front+1) % MAX;
