@@ -80,9 +80,8 @@ void insert(SET *A, int n){
 }
 
 void deleteMem(SET *A, int n){
-    unsigned int mask = 1;
     if(n>=0 && n<sizeof(SET)*8)
-    *A &= ~(mask << n);
+    *A &= ~(1 << n);
 }
 
 void display(SET A){
@@ -104,7 +103,6 @@ int isMember(SET A, int n){
 
 SET unionSet(SET A, SET B){
     return A | B;
-    
 }
 
 SET intersection(SET A, SET B){

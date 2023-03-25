@@ -61,7 +61,6 @@ void insertDictionary (Dictionary D, int x) {
 	LIST temp = (LIST) malloc (sizeof(struct node));
 	LIST *trav = &D[hashval];
 	
-	
 	for (; (*trav) != NULL && (*trav)->data <= x; trav = &(*trav)->link) {}
 		
 		temp->data = x;
