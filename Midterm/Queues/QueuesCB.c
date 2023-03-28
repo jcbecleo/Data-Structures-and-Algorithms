@@ -14,7 +14,7 @@ typedef struct{
 
 void initQueue(Queue *Q);
 int isEmpty(Queue Q);
-void enqueue(Queue *Q, char elem);
+void enqueue(Queue *Q, int elem);
 void dequeue(Queue *Q);
 char front(Queue Q);
 void display(Queue* Q);
@@ -22,12 +22,16 @@ void display(Queue* Q);
 
 int main(){
   Queue Q;
+  
   initQueue(&Q);
+
   enqueue(&Q, 'A');
   enqueue(&Q, 'B');
   enqueue(&Q, 'C');
   enqueue(&Q, 'D');
+
   display(&Q);
+
   dequeue(&Q);
   dequeue(&Q);
   display(&Q);
@@ -45,7 +49,7 @@ int isEmpty(Queue Q){
   return (Q.front == NULL) ? 1 : 0;  
 }
 
-void enqueue(Queue *Q, char elem){
+void enqueue(Queue *Q, int elem){
   node temp;
   temp = (node)malloc(sizeof(struct cell));
   if(temp != NULL){

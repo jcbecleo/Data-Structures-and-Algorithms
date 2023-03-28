@@ -31,7 +31,9 @@ int main(){
     printf("%d\n", pop(&S));
 
     Stack D;
+
     initStack(&D);
+    
     printf("%d\n", isEmpty(D));
     return 0;
 }

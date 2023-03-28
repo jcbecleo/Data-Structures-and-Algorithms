@@ -47,11 +47,11 @@ int isEmpty(Queue Q){
 void enqueue(Queue *Q, int elem){
     node temp;
     temp = (node)malloc(sizeof(struct cell));
-    if(temp != NULL){
+    if(temp != NULL){ 
         temp->elem = elem;
         temp->next = NULL;
         if(isEmpty(*Q) == 1){
-        Q->front = Q->rear = temp; 
+        Q->front = Q->rear = temp; //if queue is empty
     }else{
         Q->rear = Q->rear->next = temp;  
     }

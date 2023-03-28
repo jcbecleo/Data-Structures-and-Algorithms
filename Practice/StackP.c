@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define MAX 10
 
+//stack grows from MAX-1 to 0
+
 typedef struct{
     char elem[MAX];
     int top;
@@ -16,7 +18,6 @@ int isEmpty(Stack S);
 int main(){
     Stack S;
     initStack(&S);
-    ]
     return 0;
 }
 

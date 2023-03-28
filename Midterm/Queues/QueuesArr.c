@@ -16,6 +16,7 @@ void display(Queue* Q);
 
 int main(){
     Queue Q;
+    
     initQueue(&Q);
 
     enqueue(&Q, 1);

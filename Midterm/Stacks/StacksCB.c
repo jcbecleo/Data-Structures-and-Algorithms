@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define Max 10
 typedef struct{
-    char data;
+    int data;
     int next;
 }Nodetype;
 
@@ -10,30 +10,36 @@ typedef struct{
     int Avail;
 }VHeap;
 
-
-
 void initVirtualHeap(VHeap *VH);
 void initialize(int *S);
 int allocSpace(VHeap *VH);
 void deallocSpace(VHeap *VH, int cell);
-char top(VHeap VH, int S);
+int top(VHeap VH, int S);
 void pop(VHeap *VH, int *S);
-void push(VHeap *VH, int *S, char ch);
+void push(VHeap *VH, int *S, int ch);
 int isEmpty(int S);
-void insertLast(VHeap *VH, int *S, char elem);
+void insertLast(VHeap *VH, int *S, int elem);
 void display(VHeap *VH, int *S);
 
 int main(){
     VHeap VH;
+
     initVirtualHeap(&VH);
+
     int A;
+
     initialize(&A);
+
     push(&VH, &A, 'A');
     push(&VH, &A, 'B');
     push(&VH,&A,'C');
+
     display(&VH, &A);
+
     pop(&VH, &A);
+
     insertLast(&VH, &A, 'D');
+    
     display(&VH, &A);
     
     return 0;
@@ -69,7 +75,7 @@ void deallocSpace(VHeap *VH, int cell){
    }
 }
 
-char top(VHeap VH, int S){
+int top(VHeap VH, int S){
  return VH.Nodes[S].data;  
 }
 
@@ -82,7 +88,7 @@ void pop(VHeap *VH, int *S){
   }  
 }
 
-void push(VHeap *VH, int *S, char ch){
+void push(VHeap *VH, int *S, int ch){
   int temp; //int
   temp = allocSpace(VH);
   if(temp != -1){
@@ -96,9 +102,9 @@ int isEmpty(int S){
   return (S == -1) ? 1: 0;
 }
 
-void insertLast(VHeap *VH, int *S, char elem){
+void insertLast(VHeap *VH, int *S, int elem){
  int temp;
- char ch;
+ int ch;
  initialize(&temp);
  while(isEmpty(*S) == 0){
   ch = top(*VH, *S);
@@ -115,7 +121,7 @@ void insertLast(VHeap *VH, int *S, char elem){
 
 void display(VHeap *VH, int *S){
 int temp;
-char ch;
+int ch;
 initialize(&temp);
 while(isEmpty(*S) == 0){
   ch = top(*VH, *S);
