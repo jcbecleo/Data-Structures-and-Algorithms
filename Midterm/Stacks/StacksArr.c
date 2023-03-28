@@ -17,7 +17,7 @@ int isEmpty(Stack S);
 
 int main(){
     Stack S;
-
+    
     initStack(&S);
 
     push(&S, 1);
