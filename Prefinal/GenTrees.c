@@ -136,7 +136,7 @@ int findMax(BST root){
     }
     return findMax(root->RC);
 }
-`
+
 /* Traversal inorder */
 void printInorder(BST root) {
     if (root == NULL)
