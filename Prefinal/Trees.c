@@ -5,12 +5,10 @@ typedef struct node {
     int data;
     struct node* left;
     struct node* right;
-} Node;
+}*BinaryTree;
 
-typedef Node* BinaryTree;
-
-Node* create_node(int value) {
-    Node* new_node = (Node*) malloc(sizeof(Node));
+BinaryTree create_node(int value) {
+    BinaryTree new_node = (BinaryTree) malloc(sizeof(Node));
     new_node->data = value;
     new_node->left = NULL;
     new_node->right = NULL;
@@ -42,16 +40,16 @@ BinaryTree delete(BinaryTree root, int value) {
         root->right = delete(root->right, value);
     } else {
         if (root->left == NULL) {
-            Node* temp = root->right;
+            BinaryTree temp = root->right;
             free(root);
             return temp;
         } else if (root->right == NULL) {
-            Node* temp = root->left;
+            BinaryTree temp = root->left;
             free(root);
             return temp;
         }
 
-        Node* temp = root->right;
+        BinaryTree temp = root->right;
         while (temp->left != NULL) {
             temp = temp->left;
         }
@@ -63,7 +61,7 @@ BinaryTree delete(BinaryTree root, int value) {
     return root;
 }
 
-Node* search(BinaryTree root, int value) {
+BinaryTree search(BinaryTree root, int value) {
     if (root == NULL || root->data == value) {
         return root;
     }
@@ -115,7 +113,7 @@ int main() {
     print_tree(root);
     printf("\n");
 
-    Node* result = search(root, 6);
+    BinaryTree result = search(root, 6);
     printf("Search result: %d\n", result != NULL ? result->data : -1);
 
     printf("Height of the tree: %d\n", height(root));
