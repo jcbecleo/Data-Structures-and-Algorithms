@@ -8,7 +8,7 @@ typedef struct node {
 }*BinaryTree;
 
 BinaryTree create_node(int value) {
-    BinaryTree new_node = (BinaryTree) malloc(sizeof(Node));
+    BinaryTree new_node = (BinaryTree) malloc(sizeof(struct node));
     new_node->data = value;
     new_node->left = NULL;
     new_node->right = NULL;
